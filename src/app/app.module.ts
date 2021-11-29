@@ -12,6 +12,22 @@ import { LoadWeatherService } from 'src/domain/services/load-weather.service';
 import { LocalCityRepository } from 'src/data/local-city-repository';
 import { ApiWeatherRepository } from 'src/data/api-weather-repository';
 
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { HaversineService } from "ng2-haversine";
+
+import { FindLocationService } from 'src/domain/services/find-location.service';
+import { ApiLocationRepository } from 'src/data/api-location-repository';
+
+const createFindLocationService = () => {
+  return new FindLocationService(
+    new ApiLocationRepository(
+      new Geolocation()
+    ),
+    new LocalCityRepository(),
+    new HaversineService()
+  );
+};
+
 const createSearchCityService = () => {
   return new SearchCityService(new LocalCityRepository());
 };
@@ -35,6 +51,10 @@ const createLoadWeatherService = (http: HttpClient) => {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
+      provide: FindLocationService,
+      useFactory: createFindLocationService
+    },
+    {
       provide: SearchCityService,
       useFactory: createSearchCityService,
     },
@@ -46,4 +66,4 @@ const createLoadWeatherService = (http: HttpClient) => {
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
