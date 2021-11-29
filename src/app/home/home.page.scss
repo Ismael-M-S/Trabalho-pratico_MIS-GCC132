@@ -7,13 +7,14 @@ ion-title {
 ion-searchbar {
   --box-shadow: none;
   border-bottom: solid 1px var(--ion-color-light);
+  flex-direction: row-reverse;
 }
 
-ion-grid,
+/* ion-grid,
 ion-row {
   width: 100%;
   height: 100%;
-}
+} */
 
 .temperature {
   text-align: center;
@@ -24,4 +25,13 @@ ion-row {
 ion-button {
   --box-shadow: none;
   width: 200px;
+}
+
+#chip-meu-local {
+  background: none;
+  overflow: clip;
+}
+
+#row-meu-local {
+  width: max-content;
 }

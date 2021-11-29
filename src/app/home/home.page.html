@@ -13,7 +13,27 @@
           placeholder="Buscar cidade..."
           #searchInput
           (ionChange)="onSearch(searchInput.value)"
-        ></ion-searchbar>
+        >
+          <ion-chip
+            id="chip-meu-local"
+            class="ion-justify-content-center"
+            color="primary"
+            (click)="onFindLocation()"
+          >
+            <ion-grid>
+              <ion-row id="row-meu-local">
+                <ion-col>
+                  <ion-icon name="locate-outline"></ion-icon>
+                </ion-col>
+                <ion-col>
+                  <ion-label class="ion-text-nowrap">
+                    MEU LOCAL
+                  </ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-chip>
+        </ion-searchbar>
         <app-error-message
           message="{{errorMessage}}"
           *ngIf="hasError"
