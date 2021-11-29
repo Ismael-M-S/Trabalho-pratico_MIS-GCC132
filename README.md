@@ -12,13 +12,13 @@ Entre na pasta do projeto e execute o comando abaixo para instalar as dependênc
 
 Em seguida instale as dependências adicionais:
 
-Geolocation:
+[Geolocation](https://ionicframework.com/docs/native/geolocation):
 * `npm install cordova-plugin-geolocation`
 * `npm install @ionic-native/geolocation`
 * `ionic cap sync`
 
-haversine-distance:
-* `npm install ng2-haversine --save` [link](https://www.npmjs.com/package/ng2-haversine)
+[haversine-distance](https://www.npmjs.com/package/ng2-haversine):
+* `npm install ng2-haversine --save`
 
 Acesse o site https://openweathermap.org/api, faça seu cadastro e crie uma chave de API.
 
